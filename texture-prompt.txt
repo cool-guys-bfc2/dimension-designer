@@ -1,1 +1,1 @@
-generate json texture:{top: datauri, side:datauri ,bottom: daturi} for ""
+generate json for data-uris texture:{top: datauri, side:datauri ,bottom: daturi} for ""
