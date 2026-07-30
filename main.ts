@@ -1,6 +1,10 @@
 registerBlock({
   name: "ruby";,
   displayName: "Ruby Block";,
-  colors: { top: 0xd11a3b, side: 0xa01530, bottom: 0x700f22 },
+  texture:{
+  "top": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAANUlEQVR4nGP8P23afwYKAAsDAwPDw7plZGne9uYIAxMltjMwMIwaMGrAqAFQwMLAAMlV5AIA4e4KH8pofB4AAAAASUVORK5CYII=",
+  "side": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAANUlEQVR4nGP8P23afwYKAAsDAwPD0apZZGm+9OECAxMltjMwMIwaMGrAqAFQwMLAAMlV5AIA4oIKS7HCNbsAAAAASUVORK5CYII=",
+  "bottom": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAANUlEQVR4nGP8P23afwYKAAsDAwNDb0kXWZq5vj1gYKLEdgYGhlEDRg0YNQAKWBgYILmKXAAAFWcImWOyKDcAAAAASUVORK5CYII="
+  },
   solid: true, opaque: true, hardness: 2
 });
