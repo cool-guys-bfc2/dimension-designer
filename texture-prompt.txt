@@ -1,0 +1,1 @@
+generate json texture:{top: datauri, side:datauri ,bottom: daturi} for ""
