@@ -28,7 +28,10 @@ registerBehavior({
     if (c.distance < 8 && c.distance > 2) c.chase();
     else c.wander();
   },
-  onSpawn: (c) => { c.entity.memory.greeted = false; },
+  onSpawn: (c) => {
+    c.entity.memory.greeted = false;
+    c.say(`I am a ${c.entity.def.displayName} and i am very lonely! Can you find me?`);
+  },
   onPlayerNear: (c) => {
     if (!c.entity.memory.greeted) {
       c.entity.memory.greeted = true;
