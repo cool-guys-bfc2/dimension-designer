@@ -62,5 +62,5 @@ registerDimension({
   surfaceBlock: "deathgrass",
   fillerBlock: "deathsoil",
   stoneBlock: "deathstone",
-  entities: ["fireman",'pig','cow']
+  entities: ["fireman",'pig','cow','sheep']
 });
