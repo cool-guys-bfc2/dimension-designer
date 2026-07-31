@@ -28,7 +28,7 @@ registerDimension({
   skyColor: 0xc94908,
   seedOffset: 57,
   gravity: 0.2,
-  nostructures:true,
+  nostructures:false,
   surfaceBlock: "deathgrass",
   fillerBlock: "deathsoil",
   stoneBlock: "deathstone"
