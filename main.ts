@@ -40,6 +40,11 @@ registerBehavior({
       c.say(`You killed him! He wanted to be your friend! <Awkard Silence>`);
     }
   },
+  onHurt: (c) => {
+    if (c.entity.memory.greeted) {
+      c.say(`Hey! That Hurts.`);
+    }
+  },
 });
 registerEntity({
   name: "fireman", displayName: "FireMan",
