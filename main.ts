@@ -27,7 +27,7 @@ registerDimension({
   displayName: "Nether",
   skyColor: 0xc94908,
   gravity: 0.5,
-  nostructures:True,
+  nostructures:true,
   surfaceBlock: "deathgrass",
   fillerBlock: "deathsoil",
   stoneBlock: "deathstone"
