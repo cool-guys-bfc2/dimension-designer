@@ -74,11 +74,42 @@ registerBehavior({
     }
   },
 });
+function interval(x: number): boolean {
+    return Date.now() % x === 0;
+}
+registerBehavior({
+  name: "archer",
+  onUpdate: (c) => {
+    if (c.distance < 20) {
+      if (interval(800)) runCommand(`/spawn ${c.entity.def.projectile}`);
+      c.chase();
+    };
+    if (c.distance > 20) c.wander();
+  },
+});
+registerBehavior({
+  name: "projectile",
+  onUpdate: (c) => {
+    if (c.distance < 3 && c.distance > 0) c.chase();
+  },
+});
 registerEntity({
   name: "fireman", displayName: "FireMan",
   color: 0xd17f36, size: [0.7, 1.2, 0.4], speed: 1.6,
   hostile: false, maxHealth: 16, behavior: "innocent",
   loot: [{ item: "pork", min: 2, max: 4, chance: 1 }],
+});
+registerEntity({
+  name: "small-zombie", displayName: "Zombie-Arch",
+  color: 0xd17f36, size: [0.7, 1.2, 0.4], speed: 0.7,
+  hostile: true, maxHealth: 2, behavior: "projectile",
+  loot: [{ item: "bone", min: 1, max: 2, chance: 1 }],
+});
+registerEntity({
+  name: "zombie_arch", displayName: "Zombie-Arch",
+  color: 0xd17f36, size: [0.7, 0.5, 0.4], speed: 1.6,
+  hostile: false, maxHealth: 6, behavior: "archer", projectile: "small-zombie",
+  loot: [{ item: "rotten_flesh", min: 0, max: 1, chance: 1 }],
 });
 registerStructure({
   name: "nether_hut",
@@ -105,11 +136,11 @@ registerDimension({
   name: "nether",
   displayName: "Nether",
   skyColor: 0xc94908,
-  seedOffset: 255,
+  seedOffset: 511,
   gravity: 0.05,
   structures: ['nether_hut'],
   surfaceBlock: "deathgrass",
   fillerBlock: "deathsoil",
   stoneBlock: "deathstone",
-  mobs: ["fireman",'pig','cow','sheep']
+  mobs: ["fireman",'pig','cow','sheep','zombie_arch']
 });
