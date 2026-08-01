@@ -143,5 +143,5 @@ registerDimension({
   surfaceBlock: "deathgrass",
   fillerBlock: "deathsoil",
   stoneBlock: "deathstone",
-  mobs: ["fireman",'pig','cow','sheep','zombie_arch']
+  mobs: ["fireman",'pig','cow','sheep']
 });
