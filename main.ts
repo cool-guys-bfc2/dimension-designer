@@ -23,16 +23,6 @@ registerBlock({
   solid: true, opaque: true, hardness: 2
 });
 registerBehavior({
-  name: "portal",
-  onUpdate: (c) => {
-    c.wander();
-  },
-  onDeath: (c) => {
-    c.say(`Traveling to dimension ${c.entity.def.displayName}`);
-    runCommand(`/dimension ${c.entity.def.name}`);
-  },
-});
-registerBehavior({
   name: "innocent",
   onUpdate: (c) => {
     if (c.distance < 8 && c.distance > 2) c.chase();
@@ -90,18 +80,6 @@ registerEntity({
   hostile: false, maxHealth: 16, behavior: "innocent",
   loot: [{ item: "pork", min: 2, max: 4, chance: 1 }],
 });
-registerEntity({
-  name: "overworld", displayName: "Overworld",
-  color: 0x33909e, size: [0.7, 1.2, 0.4], speed: 0.8,
-  hostile: false, maxHealth: 10, behavior: "portal",
-  loot: [],
-});
-registerEntity({
-  name: "nether", displayName: "Nether",
-  color: 0xc94908, size: [0.7, 1.2, 0.4], speed: 0.8,
-  hostile: false, maxHealth: 10, behavior: "portal",
-  loot: [],
-});
 registerStructure({
   name: "nether_hut",
   rarity: 400,
@@ -133,5 +111,5 @@ registerDimension({
   surfaceBlock: "deathgrass",
   fillerBlock: "deathsoil",
   stoneBlock: "deathstone",
-  mobs: ["fireman",'pig','cow','sheep', 'overworld']
+  mobs: ["fireman",'pig','cow','sheep']
 });
