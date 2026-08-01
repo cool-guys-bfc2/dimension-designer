@@ -23,7 +23,7 @@ registerBlock({
   solid: true, opaque: true, hardness: 2
 });
 registerBehavior({
-  name: "innocent",
+  name: "lonely",
   onUpdate: (c) => {
     if (c.distance < 8 && c.distance > 2) c.chase();
     else c.wander();
@@ -31,6 +31,32 @@ registerBehavior({
   onSpawn: (c) => {
     c.entity.memory.greeted = false;
     c.say(`I am a ${c.entity.def.displayName} and i am very lonely! Can you find me?`);
+  },
+  onPlayerNear: (c) => {
+    if (!c.entity.memory.greeted) {
+      c.entity.memory.greeted = true;
+      c.say(`A ${c.entity.def.displayName} says hello!`);
+    }
+  },
+  onDeath: (c) => {
+    if (c.entity.memory.greeted) {
+      c.say(`You killed him! He wanted to be your friend! <Awkard Silence>`);
+    }
+  },
+  onHurt: (c) => {
+    if (c.entity.memory.greeted) {
+      c.say(`Hey! That Hurts.`);
+    }
+  },
+});
+registerBehavior({
+  name: "innocent",
+  onUpdate: (c) => {
+    if (c.distance < 8 && c.distance > 2) c.chase();
+    else c.wander();
+  },
+  onSpawn: (c) => {
+    c.entity.memory.greeted = false;
   },
   onPlayerNear: (c) => {
     if (!c.entity.memory.greeted) {
