@@ -101,7 +101,7 @@ registerEntity({
   loot: [{ item: "pork", min: 2, max: 4, chance: 1 }],
 });
 registerEntity({
-  name: "small-zombie", displayName: "Zombie-Arch",
+  name: "small-zombie", displayName: "Zombie-Minion",
   color: 0xd17f36, size: [0.7, 1.2, 0.4], speed: 0.7,
   hostile: true, maxHealth: 2, behavior: "projectile",
   loot: [{ item: "bone", min: 1, max: 2, chance: 1 }],
