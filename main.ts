@@ -146,6 +146,7 @@ registerDimension({
   fillerBlock: "deathsoil",
   stoneBlock: "deathstone",
   liquidBlock: 'water',
-  'music':'caves',
+  music: 'caves',
+  seaLevel: 26
   mobs: ["fireman",'pig','cow','sheep']
 });
