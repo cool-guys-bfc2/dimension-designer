@@ -55,13 +55,34 @@ registerEntity({
   hostile: false, maxHealth: 16, behavior: "innocent",
   loot: [{ item: "pork", min: 2, max: 4, chance: 1 }],
 });
+registerStructure({
+  name: "nether_hut",
+  rarity: 400,
+  build: () => {
+    const parts: Array<[number, number, number, string]> = [];
+    const w = 4, d = 4, h = 3;
+    for (let x = 0; x < w; x++)
+      for (let z = 0; z < d; z++)
+        for (let y = 0; y < h; y++) {
+          const edge = x === 0 || x === w - 1 || z === 0 || z === d - 1;
+          if (edge) parts.push([x, y, z, "deathdirt"]);
+        }
+    // Roof
+    for (let x = 0; x < w; x++)
+      for (let z = 0; z < d; z++) parts.push([x, h, z, Math.random() < 0.8 ? "deathstone" : "ruby" ]);
+    // Door hole
+    parts.push([1, 0, 0, "deathsoil"]); // dummy — overwritten to air below
+    return parts.filter(p => !(p[0] === 1 && p[1] === 0 && p[2] === 0) && !(p[0] === 1 && p[1] === 1 && p[2] === 0));
+  },
+});
+
 registerDimension({
   name: "nether",
   displayName: "Nether",
   skyColor: 0xc94908,
   seedOffset: 255,
   gravity: 0.2,
-  noStructures: true,
+  structures: ['nether_hut'],
   surfaceBlock: "deathgrass",
   fillerBlock: "deathsoil",
   stoneBlock: "deathstone",
