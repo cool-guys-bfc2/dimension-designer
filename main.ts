@@ -96,7 +96,7 @@ registerStructure({
     for (let x = 0; x < w; x++)
       for (let z = 0; z < d; z++) parts.push([x, h, z, Math.random() < 0.8 ? "deathstone" : "ruby" ]);
     // Door hole
-    parts.push([1, 0, 0, "deathsoil"]); // dummy — overwritten to air below
+    parts.push([1, 0, 0, "sand"]); // dummy — overwritten to air below
     return parts.filter(p => !(p[0] === 1 && p[1] === 0 && p[2] === 0) && !(p[0] === 1 && p[1] === 1 && p[2] === 0));
   },
 });
