@@ -81,7 +81,7 @@ registerBehavior({
   name: "archer",
   onUpdate: (c) => {
     if (c.distance < 20) {
-      if (interval(800)) runCommand(`/spawn ${c.entity.def.projectile}`);
+      if (interval(20000)) runCommand(`/spawn ${c.entity.def.projectile}`);
       c.chase();
     };
     if (c.distance > 20) c.wander();
@@ -91,6 +91,7 @@ registerBehavior({
   name: "projectile",
   onUpdate: (c) => {
     if (c.distance < 3 && c.distance > 0) c.chase();
+    if (interval(200)) c.entity.def.maxHealth=0;
   },
 });
 registerEntity({
