@@ -52,14 +52,14 @@ registerBehavior({
 registerEntity({
   name: "fireman", displayName: "FireMan",
   color: 0xd17f36, size: [0.7, 1.2, 0.4], speed: 1.6,
-  hostile: false, maxHealth: 20, behavior: "innocent",
+  hostile: false, maxHealth: 16, behavior: "innocent",
   loot: [{ item: "pork", min: 2, max: 4, chance: 1 }],
 });
 registerDimension({
   name: "nether",
   displayName: "Nether",
   skyColor: 0xc94908,
-  seedOffset: 57,
+  seedOffset: 255,
   gravity: 0.2,
   noStructures: true,
   surfaceBlock: "deathgrass",
