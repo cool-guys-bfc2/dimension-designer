@@ -61,9 +61,9 @@ registerDimension({
   skyColor: 0xc94908,
   seedOffset: 57,
   gravity: 0.2,
-  nostructures:false,
+  noStructures: true,
   surfaceBlock: "deathgrass",
   fillerBlock: "deathsoil",
   stoneBlock: "deathstone",
-  entities: ["fireman",'pig','cow','sheep']
+  mobs: ["fireman",'pig','cow','sheep']
 });
