@@ -145,6 +145,7 @@ registerDimension({
   surfaceBlock: "deathgrass",
   fillerBlock: "deathsoil",
   stoneBlock: "deathstone",
+  liquidBlock: 'water',
   'music':'caves',
   mobs: ["fireman",'pig','cow','sheep']
 });
