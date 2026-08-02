@@ -191,5 +191,6 @@ let isNew = true;
 if ( isNew ) {
   runCommand('/dimension world');
   runCommand('/tp -50 21 -150');
+  runCommand('/heal');
 };
 isNew = false;
