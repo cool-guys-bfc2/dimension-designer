@@ -228,6 +228,7 @@ registerDimension({
   stoneBlock: "deathstone",
   liquidBlock : "lava",
   music: 'caves',
+  seaLevel:30,
   heightAt: (_x, _z, base) => base + 14,
   mobs: ["fireman",'pig','cow','sheep']
 });
