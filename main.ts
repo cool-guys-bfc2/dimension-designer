@@ -209,6 +209,7 @@ registerCommand({
       mobs: ['rabbit','pig','cow','sheep']
     });
   },
+  "aliases":["add-dimension",'add_dim','add_dimension'],
 });
 let isNew = true;
 if ( isNew ) {
