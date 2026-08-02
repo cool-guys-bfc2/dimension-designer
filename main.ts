@@ -202,6 +202,7 @@ registerCommand({
     merged['name']=name;
     merged['displayName']=name;
     registerDimension(merged);
+    runCommand(`/dimension ${name}`);
   },
   "aliases":["add-dimension",'add_dim','add_dimension'],
 });
