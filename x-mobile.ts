@@ -1,5 +1,5 @@
 // Virtual Controls Injection Script for Lovable/Web Apps
-(function () {
+export default = (function () {
   // Guard to prevent double injection
   if (document.getElementById('lovable-mobile-controls')) return;
 
@@ -315,4 +315,4 @@
     }
   );
 
-})();
+});
