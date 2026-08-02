@@ -1,7 +1,7 @@
 let new = true;
 if ( new ) {
   runCommand('/tp -50 36 -150');
-}
+};
 registerBlock({
   name: "ruby",
   displayName: "Ruby Block",
