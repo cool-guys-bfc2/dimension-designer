@@ -1,4 +1,10 @@
 registerBlock({
+  name: "lava",
+  displayName: "Lava",
+  colors: { top: 0xe65d05, side: 0xe65d05, bottom: 0xe65d05 },
+  solid: false, opaque: false, hardness: 0,
+});
+registerBlock({
   name: "ruby",
   displayName: "Ruby Block",
   tool : 'pickaxe',
@@ -220,6 +226,7 @@ registerDimension({
   surfaceBlock: "deathgrass",
   fillerBlock: "deathsoil",
   stoneBlock: "deathstone",
+  liquidBlock : "lava",
   music: 'caves',
   heightAt: (_x, _z, base) => base + 14,
   mobs: ["fireman",'pig','cow','sheep']
