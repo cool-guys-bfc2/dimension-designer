@@ -117,7 +117,7 @@ registerEntity({
 registerEntity({
   name: "wolf", displayName: "Wolf",
   color: 0x137846, size: [1.2, 0.7, 0.5], speed: 1.6,
-  hostile: false, maxHealth: 16, behavior: "wander",
+  hostile: false, maxHealth: 16, behavior: "chase",
   targets:["sheep","pig","wolf"],attackDamage:4,attackRange:2,
   loot: [],
 });
