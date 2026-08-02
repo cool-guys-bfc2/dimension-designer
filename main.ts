@@ -1,3 +1,4 @@
+runCommand('/tp -50 36 -150');
 registerBlock({
   name: "ruby",
   displayName: "Ruby Block",
