@@ -176,7 +176,7 @@ registerDimension({
   fillerBlock: "cloud",
   stoneBlock: "cloud",
   // Only what is listed here spawns; leaving a list out means "none at all".
-  structures: ["boulder",'end_hut'],
+  structures: ["boulder",'end_hut','oak_tree'],
   mobs: ["rabbit", "sheep", "fireman",'pig'],
   music: "dim_skylands",
 
