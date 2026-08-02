@@ -114,6 +114,13 @@ registerEntity({
   hostile: false, maxHealth: 6, behavior: "archer", projectile: "small-zombie",
   loot: [{ item: "rotten_flesh", min: 0, max: 1, chance: 1 }],
 });
+registerEntity({
+  name: "wolf", displayName: "Wolf",
+  color: 0x137846, size: [1.2, 0.7, 0.5], speed: 1.6,
+  hostile: false, maxHealth: 16, behavior: "wander",
+  targets:["sheep","pig","wolf"],attackDamage:4,attackRange:2,
+  loot: [],
+});
 registerStructure({
   name: "nether_hut",
   rarity: 400,
