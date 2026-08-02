@@ -187,10 +187,32 @@ registerDimension({
   music: 'day',
   mobs: ['rabbit','pig','cow','sheep']
 });
+registerCommand({
+  name: "add-dim",
+  description: "Add new dimension",
+  usage: "add-dim <name>",
+  run: (c) => {
+    const name = c.args[0];
+    registerDimension({
+      name: name,
+      displayName: name,
+      skyColor: 0x00ffff,
+      seedOffset: 63,
+      gravity: 1.0,
+      structures: ['hut','great_oak_tree'],
+      surfaceBlock: "grass",
+      fillerBlock: "dirt",
+      stoneBlock: "stone",
+      liquidBlock: null,
+      seaLevel: 14,
+      music: 'day',
+      mobs: ['rabbit','pig','cow','sheep']
+    });
+  },
+});
 let isNew = true;
 if ( isNew ) {
-  runCommand('/dimension world');
-  runCommand('/tp -50 21 -150');
+  #runCommand('/tp -50 21 -150');
   runCommand('/heal');
 };
 isNew = false;
