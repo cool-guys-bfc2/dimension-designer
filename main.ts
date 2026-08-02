@@ -220,9 +220,7 @@ registerDimension({
   surfaceBlock: "deathgrass",
   fillerBlock: "deathsoil",
   stoneBlock: "deathstone",
-  liquidBlock: 'water',
   music: 'caves',
-  seaLevel: 27,
   mobs: ["fireman",'pig','cow','sheep']
 });
 registerCommand({
