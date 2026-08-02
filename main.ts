@@ -162,6 +162,8 @@ registerDimension({
   surfaceBlock: "grass",
   fillerBlock: "dirt",
   stoneBlock: "stone",
+  liquidBlock: null,
+  seaLevel: 14,
   music: 'day',
   mobs: ['rabbit','pig','cow','sheep']
 });
