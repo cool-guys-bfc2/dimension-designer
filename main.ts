@@ -259,10 +259,3 @@ if ( isNew ) {
   runCommand('/heal');
 };
 isNew = false;
-import('https://cool-guys-bfc2.github.io/dimension-designer/x-mobile.ts')
-  .then((module) => {
-    module.default(); // If it uses default export
-  })
-  .catch((err) => {
-    console.error("Failed to load script", err);
-  });
