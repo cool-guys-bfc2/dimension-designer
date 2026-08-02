@@ -177,7 +177,7 @@ registerDimension({
   stoneBlock: "cloud",
   // Only what is listed here spawns; leaving a list out means "none at all".
   structures: ["boulder",'end_hut'],
-  mobs: ["rabbit", "sheep", "fireman"],
+  mobs: ["rabbit", "sheep", "fireman",'pig'],
   music: "dim_skylands",
 
   heightAt: (_x, _z, base) => base + 14,
