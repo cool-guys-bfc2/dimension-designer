@@ -1,7 +1,3 @@
-let new = true;
-if ( new ) {
-  runCommand('/tp -50 36 -150');
-};
 registerBlock({
   name: "ruby",
   displayName: "Ruby Block",
@@ -121,6 +117,8 @@ registerEntity({
 registerStructure({
   name: "nether_hut",
   rarity: 400,
+  underwater: false,
+  spacing: 48,
   build: () => {
     const parts: Array<[number, number, number, string]> = [];
     const w = 4, d = 4, h = 3;
@@ -154,4 +152,22 @@ registerDimension({
   seaLevel: 27,
   mobs: ["fireman",'pig','cow','sheep']
 });
+registerDimension({
+  name: "world",
+  displayName: "World",
+  skyColor: 0x00ffff,
+  seedOffset: 63,
+  gravity: 1.0,
+  structures: ['hut','oak_tree'],
+  surfaceBlock: "grass",
+  fillerBlock: "dirt",
+  stoneBlock: "stone",
+  music: 'day',
+  mobs: ['rabbit','pig','cow','sheep']
+});
+let new = true;
+if ( new ) {
+  runCommand('/dimension world');
+  runCommand('/tp -50 36 -150');
+};
 new = false;
