@@ -165,6 +165,25 @@ registerStructure({
     return parts.filter(p => !(p[0] === 1 && p[1] === 0 && p[2] === 0) && !(p[0] === 1 && p[1] === 1 && p[2] === 0));
   },
 });
+registerStructure({
+  name: "great_oak_tree",
+  rarity: 40,
+  underwater: false,
+  minHeight: 31,
+  build: (x, y, z) => {
+    const parts: Array<[number, number, number, string]> = [];
+    const h = 4 + Math.floor(Math.random() * 2);
+    for (let i = 0; i < h; i++) parts.push([0, i, 0, "wood"]);
+    for (let dx = -2; dx <= 2; dx++)
+      for (let dz = -2; dz <= 2; dz++)
+        for (let dy = 0; dy < 2; dy++) {
+          if (Math.abs(dx) === 2 && Math.abs(dz) === 2) continue;
+          parts.push([dx, h - 1 + dy, dz, "leaves"]);
+        }
+    parts.push([0, h + 1, 0, "leaves"]);
+    return parts;
+  },
+});
 registerDimension({
   name: "end",
   displayName: "End",
@@ -176,7 +195,7 @@ registerDimension({
   fillerBlock: "cloud",
   stoneBlock: "cloud",
   // Only what is listed here spawns; leaving a list out means "none at all".
-  structures: ["boulder",'end_hut','oak_tree'],
+  structures: ["boulder",'end_hut','great_oak_tree'],
   mobs: ["rabbit", "sheep", "fireman",'pig'],
   music: "dim_skylands",
 
@@ -205,25 +224,6 @@ registerDimension({
   music: 'caves',
   seaLevel: 27,
   mobs: ["fireman",'pig','cow','sheep']
-});
-registerStructure({
-  name: "great_oak_tree",
-  rarity: 40,
-  underwater: false,
-  minHeight: 31,
-  build: (x, y, z) => {
-    const parts: Array<[number, number, number, string]> = [];
-    const h = 4 + Math.floor(Math.random() * 2);
-    for (let i = 0; i < h; i++) parts.push([0, i, 0, "wood"]);
-    for (let dx = -2; dx <= 2; dx++)
-      for (let dz = -2; dz <= 2; dz++)
-        for (let dy = 0; dy < 2; dy++) {
-          if (Math.abs(dx) === 2 && Math.abs(dz) === 2) continue;
-          parts.push([dx, h - 1 + dy, dz, "leaves"]);
-        }
-    parts.push([0, h + 1, 0, "leaves"]);
-    return parts;
-  },
 });
 registerCommand({
   name: "add-dim",
