@@ -165,9 +165,9 @@ registerDimension({
   music: 'day',
   mobs: ['rabbit','pig','cow','sheep']
 });
-let new = true;
-if ( new ) {
+let isNew = true;
+if ( isNew ) {
   runCommand('/dimension world');
   runCommand('/tp -50 36 -150');
 };
-new = false;
+isNew = false;
