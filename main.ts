@@ -147,6 +147,6 @@ registerDimension({
   stoneBlock: "deathstone",
   liquidBlock: 'water',
   music: 'caves',
-  seaLevel: 26,
+  seaLevel: 27,
   mobs: ["fireman",'pig','cow','sheep']
 });
