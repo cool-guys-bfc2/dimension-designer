@@ -213,7 +213,7 @@ registerCommand({
 });
 let isNew = true;
 if ( isNew ) {
-  #runCommand('/tp -50 21 -150');
+  //runCommand('/tp -50 21 -150');
   runCommand('/heal');
 };
 isNew = false;
