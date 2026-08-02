@@ -143,7 +143,54 @@ registerStructure({
     return parts.filter(p => !(p[0] === 1 && p[1] === 0 && p[2] === 0) && !(p[0] === 1 && p[1] === 1 && p[2] === 0));
   },
 });
+registerStructure({
+  name: "end_hut",
+  rarity: 400,
+  underwater: false,
+  spacing: 48,
+  build: () => {
+    const parts: Array<[number, number, number, string]> = [];
+    const w = 4, d = 4, h = 3;
+    for (let x = 0; x < w; x++)
+      for (let z = 0; z < d; z++)
+        for (let y = 0; y < h; y++) {
+          const edge = x === 0 || x === w - 1 || z === 0 || z === d - 1;
+          if (edge) parts.push([x, y, z, "cloud"]);
+        }
+    // Roof
+    for (let x = 0; x < w; x++)
+      for (let z = 0; z < d; z++) parts.push([x, h, z, Math.random() < 0.8 ? "cloud" : "planks" ]);
+    // Door hole
+    parts.push([1, 0, 0, "sand"]); // dummy — overwritten to air below
+    return parts.filter(p => !(p[0] === 1 && p[1] === 0 && p[2] === 0) && !(p[0] === 1 && p[1] === 1 && p[2] === 0));
+  },
+});
+registerDimension({
+  name: "end",
+  displayName: "End",
+  seedOffset: 8191,
+  skyColor: 0xa1509e,
+  gravity: 0.025,
+  liquidBlock: null,
+  surfaceBlock: "cloud",
+  fillerBlock: "cloud",
+  stoneBlock: "cloud",
+  // Only what is listed here spawns; leaving a list out means "none at all".
+  structures: ["boulder",'end_hut'],
+  mobs: ["rabbit", "sheep", "fireman"],
+  music: "dim_skylands",
 
+  heightAt: (_x, _z, base) => base + 14,
+  blockAt: (x, y, z, height, fallback) => {
+    // Floating islands: keep a slab of terrain, carve everything else away.
+    if (y > height || y < height - 6) return null;
+    const wobble = Math.sin(x * 0.19) + Math.cos(z * 0.21);
+    if (wobble < -1.1) return null;
+    if (y === height) return "cloud";
+    if (y > height - 3) return "cloud";
+    return "cloud";
+  },
+});
 registerDimension({
   name: "nether",
   displayName: "Nether",
