@@ -221,6 +221,7 @@ registerDimension({
   fillerBlock: "deathsoil",
   stoneBlock: "deathstone",
   music: 'caves',
+  heightAt: (_x, _z, base) => base + 14,
   mobs: ["fireman",'pig','cow','sheep']
 });
 registerCommand({
