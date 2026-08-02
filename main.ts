@@ -205,7 +205,7 @@ registerDimension({
   mobs: ["rabbit", "sheep", "fireman",'pig'],
   music: "dim_skylands",
 
-  heightAt: (_x, _z, base) => base + 14,
+  heightAt: (_x, _z, base) => base + 18,
   blockAt: (x, y, z, height, fallback) => {
     // Floating islands: keep a slab of terrain, carve everything else away.
     if (y > height || y < height - 6) return null;
