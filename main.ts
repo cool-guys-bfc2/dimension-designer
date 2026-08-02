@@ -190,6 +190,6 @@ registerDimension({
 let isNew = true;
 if ( isNew ) {
   runCommand('/dimension world');
-  runCommand('/tp -50 17 -150');
+  runCommand('/tp -50 21 -150');
 };
 isNew = false;
