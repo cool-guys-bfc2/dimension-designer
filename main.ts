@@ -178,31 +178,14 @@ registerStructure({
     return parts;
   },
 });
-
-registerDimension({
-  name: "world",
-  displayName: "World",
-  skyColor: 0x00ffff,
-  seedOffset: 63,
-  gravity: 1.0,
-  structures: ['hut','great_oak_tree'],
-  surfaceBlock: "grass",
-  fillerBlock: "dirt",
-  stoneBlock: "stone",
-  liquidBlock: null,
-  seaLevel: 14,
-  music: 'day',
-  mobs: ['rabbit','pig','cow','sheep']
-});
 registerCommand({
   name: "add-dim",
   description: "Add new dimension",
-  usage: "add-dim <name>",
+  usage: "add-dim <name> <args: json>",
   run: (c) => {
     const name = c.args[0];
-    registerDimension({
-      name: name,
-      displayName: name,
+    let data = JSON.parse(c.args[1]) as any;
+    const main={
       skyColor: 0x00ffff,
       seedOffset: 63,
       gravity: 1.0,
@@ -214,7 +197,11 @@ registerCommand({
       seaLevel: 14,
       music: 'day',
       mobs: ['rabbit','pig','cow','sheep']
-    });
+    }
+    const merged = { ...main, ...data };
+    merged['name']=name;
+    merged['displayName']=name;
+    registerDimension(merged);
   },
   "aliases":["add-dimension",'add_dim','add_dimension'],
 });
