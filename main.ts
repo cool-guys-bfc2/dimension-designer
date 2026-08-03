@@ -98,7 +98,7 @@ function getFunctionFromObject<T, X extends FunctionKeys<T>>(obj: T, x: X): T[X]
   return obj[x];
 }
 //Add single-tool
-function addTool(material: string, kind: string, strength: number, color: any, speed: number, damage: number): any {
+function addTool(material: string, kind: string, strength: number, color: any, speed: number, damage: number): void {
     const id = `${material}_${kind}`;
     const display = `${title(material) ${title(kind)}`;
     const x=getFunctionFrom(T,`${title(kind)}Icon`);
@@ -111,7 +111,6 @@ function addTool(material: string, kind: string, strength: number, color: any, s
       texture: x(color)
     };
     registerItem(d)
-    return d;
 }
 //make number at least 1
 function nz(x: number): number {
