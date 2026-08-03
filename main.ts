@@ -89,12 +89,22 @@ function interval(x: number): boolean {
 function title(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
-type FunctionKeys<T> = { [K in keyof T]: T[K] extends Function ? K : never; }[keyof T];
-
-// 2. Implement the safe retrieval function
-function getFunctionFromObject<T, X extends FunctionKeys<T>>(obj: T, x: X): T[X] {
-  return obj[x];
+function getFunctionFrom<
+  T extends Record<string, any>, 
+  K extends keyof T
+>(
+  obj: T, 
+  key: K
+): T[K] extends (...args: any[]) => any ? T[K] : undefined {
+  const value = obj[key];
+  
+  if (typeof value === 'function') {
+    return value as any;
+  }
+  
+  return undefined as any;
 }
+
 //Add single-tool
 function addTool(material: string, kind: string, strength: number, color: any, speed: number, damage: number): void {
     const id = `${material}_${kind}`;
