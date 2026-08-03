@@ -1,3 +1,4 @@
+import * as T from "./textures";
 registerBlock({
   name: "lava",
   displayName: "Lava",
@@ -85,6 +86,45 @@ registerBehavior({
 function interval(x: number): boolean {
     return Date.now() % x === 0;
 }
+function title(str: string): string {
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+}
+type FunctionKeys<T> = {
+  [K in keyof T]: T[K] extends Function ? K : never;
+}[keyof T];
+
+// 2. Implement the safe retrieval function
+function getFunctionFromObject<T, X extends FunctionKeys<T>>(obj: T, x: X): T[X] {
+  return obj[x];
+}
+//Add single-tool
+function addTool(material: string, kind: string, strength: number, color: any, speed: number, damage: number): any {
+    const id = `${material}_${kind}`;
+    const display = `${title(material) ${title(kind)}`;
+    const x=getFunctionFrom(T,`${title(kind)}Icon`);
+    const d = {
+      displayName: display,
+      name: id,
+      color: color,
+      stackSize: 1,
+      tool: { kind: kind, speed: speed, damage : damage, durability: strenth},
+      texture: x(color)
+    };
+    registerItem(d)
+    return d;
+}
+//make number at least 1
+function nz(x: number): number {
+  return Math.max(1, x);
+}
+//Add toolset using material, sword-damage, strength/durability ,color, pickaxe-speed
+function addToolSet(material: string, damage: number, durability: number, color: any, speed: number): void {
+  addTool(material, 'axe', durability, color, speed-2, nz(damage+1));
+  addTool(material, 'pickaxe', durability, color, speed, nz(damage-2));
+  addTool(material, 'shovel', durability, color, speed, nz(damage-2));
+  addTool(material, 'sword', durability, color, speed-2, nz(damage));
+}
+addToolSet('diamond',8,1561,0x30bcd1,8);
 registerBehavior({
   name: "archer",
   onUpdate: (c) => {
