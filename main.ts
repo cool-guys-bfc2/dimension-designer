@@ -100,7 +100,7 @@ function addTool(material: string, kind: string, strength: number, color: any, s
       name: id,
       color: color,
       stackSize: 1,
-      tool: { kind: kind, speed: speed, damage : damage, durability: strenth},
+      tool: { kind: kind, speed: speed, damage : damage, durability: strength},
       texture: x(color)
     };
     registerItem(d)
