@@ -94,14 +94,12 @@ function title(str: string): string {
 function addTool(material: string, kind: string, strength: number, color: any, speed: number, damage: number): void {
     const id = `${material}_${kind}`;
     const display = `${title(material)} ${title(kind)}`;
-    const x=T[`${title(kind)}Icon`];
     const d = {
       displayName: display,
       name: id,
       color: color,
       stackSize: 1,
       tool: { kind: kind, speed: speed, damage : damage, durability: strength},
-      texture: x(color)
     };
     registerItem(d)
 }
