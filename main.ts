@@ -93,7 +93,7 @@ function title(str: string): string {
 //Add single-tool
 function addTool(material: string, kind: string, strength: number, color: any, speed: number, damage: number): void {
     const id = `${material}_${kind}`;
-    const display = `${title(material) ${title(kind)}`;
+    const display = `${title(material)} ${title(kind)}`;
     const x=T[`${title(kind)}Icon`];
     const d = {
       displayName: display,
