@@ -1,4 +1,4 @@
-import * as T from "./textures";
+
 registerBlock({
   name: "lava",
   displayName: "Lava",
